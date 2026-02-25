@@ -8,11 +8,8 @@
 2. [Features](#features)
 3. [Tech Stack](#tech-stack)
 4. [Project Structure](#project-structure)
-5. [File Creation Steps (Step-by-Step)](#file-creation-steps)
-6. [How the ML Detection Works](#how-the-ml-detection-works)
-7. [Running the Project](#running-the-project)
-8. [API Reference](#api-reference)
-9. [Future Improvements](#future-improvements)
+5. [How the ML Detection Works](#how-the-ml-detection-works)
+6. [Future Improvements](#future-improvements)
 
 ---
 
