@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fishing for Phishing</title>
+  <link rel="stylesheet" href="/static/css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <div class="bg-grid"></div>
+  <div class="scanline"></div>
+
+  <!-- NAV -->
+  <nav class="navbar">
+    <div class="nav-logo">
+      <span class="logo-icon">👾</span>
+      <span class="logo-text">FISHING FOR <span class="accent">PHISHING</span></span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="/" class="active">Detector</a></li>
+      <li><a href="/learn">Learn</a></li>
+      <li><a href="/quiz">Quiz</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-badge">• Team CyberVerse • </div>
+    <h1 class="hero-title">
+      Detect <span class="glitch" data-text="Phishing">Phishing</span><br/>Before It Catches You
+    </h1>
+    <p class="hero-subtitle">
+      Three ML-powered tools below — analyze suspicious messages, scan URLs, and verify email addresses in real time.
+    </p>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       CARD 1 — MESSAGE / EMAIL BODY DETECTOR
+       ══════════════════════════════════════════════ -->
+  <section class="detector-section">
+    <div class="detector-card">
+      <div class="card-header">
+        <span class="terminal-dot red"></span>
+        <span class="terminal-dot yellow"></span>
+        <span class="terminal-dot green"></span>
+        <span class="card-title">🔍 ML Phishing Message Analyzer v1.0</span>
+      </div>
+
+      <div class="input-area">
+        <label for="messageInput">Paste Email / Message Text</label>
+        <textarea id="messageInput" placeholder="Dear user, your account has been SUSPENDED! Click here immediately to verify your identity and avoid permanent deletion..."></textarea>
+        <div class="input-meta">
+          <span id="wordCount">0 words</span>
+          <button id="clearBtn" class="btn-clear">Clear</button>
+        </div>
+      </div>
+
+      <div class="samples">
+        <span class="samples-label">Try a sample:</span>
+        <button class="sample-btn" data-type="phishing">🎣 Phishing Email</button>
+        <button class="sample-btn" data-type="legit">✅ Legit Email</button>
+      </div>
+
+      <button id="analyzeBtn" class="btn-analyze">
+        <span class="btn-text">🔍 Analyze Message</span>
+        <span class="btn-loading hidden">Scanning...</span>
+      </button>
+
+      <div id="resultPanel" class="result-panel hidden">
+        <div class="result-header">
+          <div id="verdictBadge" class="verdict-badge"></div>
+          <div class="probability-wrap">
+            <span class="prob-label">Phishing Probability</span>
+            <div class="prob-bar-wrap"><div id="probBar" class="prob-bar"></div></div>
+            <span id="probValue" class="prob-value"></span>
+          </div>
+        </div>
+        <div class="result-columns">
+          <div class="col">
+            <h4 class="col-title danger-title">🚨 Red Flags</h4>
+            <ul id="redFlagsList" class="flag-list"></ul>
+          </div>
+          <div class="col">
+            <h4 class="col-title safe-title">🛡️ Safe Signs</h4>
+            <ul id="safeSignsList" class="safe-list"></ul>
+          </div>
+        </div>
+        <details class="features-details">
+          <summary>⚙️ Feature Breakdown (ML Inputs)</summary>
+          <div id="featuresGrid" class="features-grid"></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       CARD 2 — URL / WEBSITE DETECTOR
+       ══════════════════════════════════════════════ -->
+  <section class="detector-section">
+    <div class="detector-card">
+      <div class="card-header">
+        <span class="terminal-dot red"></span>
+        <span class="terminal-dot yellow"></span>
+        <span class="terminal-dot green"></span>
+        <span class="card-title">🌐 Phishing Website URL Detector v1.0</span>
+      </div>
+
+      <div class="input-area">
+        <label for="urlInput">Enter a Website URL to Scan</label>
+        <div class="url-input-row">
+          <input type="text" id="urlInput" class="url-input"
+            placeholder="e.g. http://paypa1-secure-login.xyz/verify"
+            autocomplete="off" spellcheck="false"/>
+          <button id="clearUrlBtn" class="btn-clear">Clear</button>
+        </div>
+      </div>
+
+      <div class="samples">
+        <span class="samples-label">Try a sample:</span>
+        <button class="url-sample-btn" data-url="http://paypa1-secure-login.xyz/verify?user=admin">🎣 Phishing URL</button>
+        <button class="url-sample-btn" data-url="https://www.paypal.com/signin">✅ Legit URL</button>
+      </div>
+
+      <button id="analyzeUrlBtn" class="btn-analyze">
+        <span class="url-btn-text">🔎 Scan URL</span>
+        <span class="url-btn-loading hidden">Scanning...</span>
+      </button>
+
+      <div id="urlResultPanel" class="result-panel hidden">
+        <div class="result-header">
+          <div id="urlVerdictBadge" class="verdict-badge"></div>
+          <div class="probability-wrap">
+            <span class="prob-label">Phishing Probability</span>
+            <div class="prob-bar-wrap"><div id="urlProbBar" class="prob-bar"></div></div>
+            <span id="urlProbValue" class="prob-value"></span>
+          </div>
+        </div>
+        <div class="result-columns">
+          <div class="col">
+            <h4 class="col-title danger-title">🚨 Suspicious Signals</h4>
+            <ul id="urlRedFlagsList" class="flag-list"></ul>
+          </div>
+          <div class="col">
+            <h4 class="col-title safe-title">🛡️ Safe Signals</h4>
+            <ul id="urlSafeSignsList" class="safe-list"></ul>
+          </div>
+        </div>
+        <details class="features-details">
+          <summary>⚙️ URL Feature Breakdown (ML Inputs)</summary>
+          <div id="urlFeaturesGrid" class="features-grid"></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       CARD 3 — EMAIL ADDRESS DETECTOR
+       ══════════════════════════════════════════════ -->
+  <section class="detector-section">
+    <div class="detector-card">
+      <div class="card-header">
+        <span class="terminal-dot red"></span>
+        <span class="terminal-dot yellow"></span>
+        <span class="terminal-dot green"></span>
+        <span class="card-title">📧 Phishing Email Address Detector v1.0</span>
+      </div>
+
+      <div class="input-area">
+        <label for="emailInput">Enter a Sender Email Address to Scan</label>
+        <div class="url-input-row">
+          <input type="text" id="emailInput" class="url-input"
+            placeholder="e.g. security-alert@paypa1-verify.support"
+            autocomplete="off" spellcheck="false"/>
+          <button id="clearEmailBtn" class="btn-clear">Clear</button>
+        </div>
+      </div>
+
+      <div class="samples">
+        <span class="samples-label">Try a sample:</span>
+        <button class="email-sample-btn" data-email="security-alert@paypa1-account-verify.support">🎣 Phishing</button>
+        <button class="email-sample-btn" data-email="no-reply@github.com">✅ Legit</button>
+        <button class="email-sample-btn" data-email="noreply@amaz0n-billing-update.xyz">🎣 Spoofed Brand</button>
+        <button class="email-sample-btn" data-email="receipts@stripe.com">✅ Legit Service</button>
+      </div>
+
+      <button id="analyzeEmailBtn" class="btn-analyze">
+        <span class="email-btn-text">📧 Analyze Email Address</span>
+        <span class="email-btn-loading hidden">Scanning...</span>
+      </button>
+
+      <div id="emailResultPanel" class="result-panel hidden">
+        <div class="result-header">
+          <div id="emailVerdictBadge" class="verdict-badge"></div>
+          <div class="probability-wrap">
+            <span class="prob-label">Phishing Probability</span>
+            <div class="prob-bar-wrap"><div id="emailProbBar" class="prob-bar"></div></div>
+            <span id="emailProbValue" class="prob-value"></span>
+          </div>
+        </div>
+        <div class="result-columns">
+          <div class="col">
+            <h4 class="col-title danger-title">🚨 Suspicious Signals</h4>
+            <ul id="emailRedFlagsList" class="flag-list"></ul>
+          </div>
+          <div class="col">
+            <h4 class="col-title safe-title">🛡️ Safe Signals</h4>
+            <ul id="emailSafeSignsList" class="safe-list"></ul>
+          </div>
+        </div>
+        <details class="features-details">
+          <summary>⚙️ Email Feature Breakdown (ML Inputs)</summary>
+          <div id="emailFeaturesGrid" class="features-grid"></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS STRIP -->
+  <section class="stats-strip">
+    <div class="stat-item">
+      <span class="stat-number">3.4B</span>
+      <span class="stat-label">Phishing emails sent daily</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number">91%</span>
+      <span class="stat-label">Cyberattacks start with phishing</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number">$17,700</span>
+      <span class="stat-label">Lost per minute to phishing</span>
+    </div>
+  </section>
+
+  <!-- EXAMPLES SECTION -->
+  <section class="examples-section">
+    <h2 class="section-title">Real vs Fake — <span class="accent">Spot the Difference</span></h2>
+    <div class="examples-grid">
+
+      <div class="example-card fake-card">
+        <div class="example-badge fake-badge">🎣 PHISHING</div>
+        <div class="email-mock">
+          <div class="email-field"><span>From:</span> security@paypa1-secure-login.com</div>
+          <div class="email-field"><span>Subject:</span> ⚠️ URGENT: Your PayPal Account Is SUSPENDED!</div>
+          <div class="email-body">
+            Dear Valued Customer,<br/><br/>
+            We have detected <strong>UNUSUAL ACTIVITY</strong> on your account. You must
+            <strong>VERIFY IMMEDIATELY</strong> or your account will be permanently deleted within 24 hours!!!<br/><br/>
+            <a href="#" class="fake-link">👉 CLICK HERE TO VERIFY NOW 👈</a>
+          </div>
+        </div>
+        <ul class="red-flags-list">
+          <li>❌ Misspelled domain: "paypa<strong>1</strong>" not "paypal"</li>
+          <li>❌ Extreme urgency &amp; threats</li>
+          <li>❌ Generic greeting, not your name</li>
+          <li>❌ Suspicious link domain</li>
+        </ul>
+      </div>
+
+      <div class="example-card legit-card">
+        <div class="example-badge legit-badge">✅ LEGITIMATE</div>
+        <div class="email-mock">
+          <div class="email-field"><span>From:</span> service@paypal.com</div>
+          <div class="email-field"><span>Subject:</span> Your PayPal receipt for $45.00</div>
+          <div class="email-body">
+            Hi Sarah,<br/><br/>
+            You sent a payment of $45.00 to Coffee Shop Inc. on Feb 25, 2026.<br/><br/>
+            If you didn't authorize this, please visit paypal.com/disputes — do not click any links in emails.<br/><br/>
+            Thank you for using PayPal.
+          </div>
+        </div>
+        <ul class="green-flags-list">
+          <li>✅ Official domain: paypal.com</li>
+          <li>✅ Uses your real name</li>
+          <li>✅ Calm tone, no threats</li>
+          <li>✅ Directs you to type URL manually</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>Team CyberVerse &nbsp;•&nbsp; Fishing for Phishing</p>
+    <p class="footer-sub">Educational project — not a commercial product</p>
+  </footer>
+
+  <!-- ✅ Script tag — MUST be at end of body so DOM is ready -->
+  <script src="/static/js/main.js"></script>
+
+</body>
+</html>

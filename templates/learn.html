@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Learn — Fishing for Phishing</title>
+  <link rel="stylesheet" href="/static/css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet"/>
+</head>
+<body>
+  <div class="bg-grid"></div>
+  <div class="scanline"></div>
+
+  <nav class="navbar">
+    <div class="nav-logo">
+      <span class="logo-icon">👾</span>
+      <span class="logo-text">FISHING FOR <span class="accent">PHISHING</span></span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="/">Detector</a></li>
+      <li><a href="/learn">Learn</a></li>
+      <li><a href="/quiz">Quiz</a></li>
+    </ul>
+  </nav>
+
+  <section class="page-hero">
+    <h1 class="hero-title">How do you <span class="accent">Recognise Phishing ?</span></h1>
+    <p class="hero-subtitle">Everything you need to know to stay safe online</p>
+  </section>
+
+  <section class="learn-section">
+
+    <div class="learn-card">
+      <div class="learn-icon">🎣</div>
+      <h3>What is Phishing?</h3>
+      <p>Phishing is a type of social engineering attack where cybercriminals impersonate trusted organizations (banks, tech companies, government agencies) to trick victims into revealing sensitive information like passwords, credit card numbers, or Social Security numbers.</p>
+      <p>The term comes from "fishing" — attackers cast a wide net hoping someone "bites."</p>
+    </div>
+
+    <div class="learn-card">
+      <div class="learn-icon">📊</div>
+      <h3>Types of Phishing Attacks</h3>
+      <div class="type-grid">
+        <div class="type-item">
+          <strong>Email Phishing</strong>
+          <p>Mass emails impersonating brands. Most common type.</p>
+        </div>
+        <div class="type-item">
+          <strong>Spear Phishing</strong>
+          <p>Targeted attacks using personal info about the victim.</p>
+        </div>
+        <div class="type-item">
+          <strong>Smishing</strong>
+          <p>Phishing via SMS text messages.</p>
+        </div>
+        <div class="type-item">
+          <strong>Vishing</strong>
+          <p>Voice/phone call phishing attacks.</p>
+        </div>
+        <div class="type-item">
+          <strong>Clone Phishing</strong>
+          <p>Duplicating a real email with malicious links.</p>
+        </div>
+        <div class="type-item">
+          <strong>Whaling</strong>
+          <p>Targeting high-profile executives (CEOs, CFOs).</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="learn-card">
+      <div class="learn-icon">🔍</div>
+      <h3>10 Red Flags to Spot Phishing</h3>
+      <ol class="redflags-ol">
+        <li><strong>Urgency & Threats</strong> — "Act NOW or your account will be deleted!"</li>
+        <li><strong>Misspelled domains</strong> — paypa1.com instead of paypal.com</li>
+        <li><strong>Generic greetings</strong> — "Dear Customer" instead of your name</li>
+        <li><strong>Suspicious links</strong> — Hover before you click. Does the URL match?</li>
+        <li><strong>Unexpected attachments</strong> — Never open unknown .exe, .zip, .docm files</li>
+        <li><strong>Requests for sensitive info</strong> — Legit orgs never ask for passwords by email</li>
+        <li><strong>Poor grammar/spelling</strong> — Professional orgs proofread their emails</li>
+        <li><strong>Too-good-to-be-true offers</strong> — "You've won $1,000,000!"</li>
+        <li><strong>Mismatched email headers</strong> — "From" address doesn't match the company</li>
+        <li><strong>Pressure to bypass security</strong> — "Don't tell IT, this is confidential"</li>
+      </ol>
+    </div>
+
+    <div class="learn-card">
+      <div class="learn-icon">👾</div>
+      <h3>How ML Detects Phishing</h3>
+      <p>Machine learning models extract <strong>features</strong> from emails and messages, then classify them as phishing or legitimate. Common features include:</p>
+      <div class="feature-pills">
+        <span class="pill">Urgency keyword frequency</span>
+        <span class="pill">URL structure analysis</span>
+        <span class="pill">Domain reputation</span>
+        <span class="pill">Text entropy</span>
+        <span class="pill">Capitalization ratio</span>
+        <span class="pill">Sensitive info requests</span>
+        <span class="pill">Sender domain mismatch</span>
+        <span class="pill">Punctuation patterns</span>
+      </div>
+      <p style="margin-top:1rem">Models like <strong>Random Forest, Naive Bayes, and BERT</strong> are commonly used in production phishing detectors.</p>
+    </div>
+
+    <div class="learn-card">
+      <div class="learn-icon">✅</div>
+      <h3>Best Practices to Stay Safe</h3>
+      <ul class="best-practices">
+        <li>Never click links in unsolicited emails — type URLs directly</li>
+        <li>Enable Multi-Factor Authentication (MFA) everywhere</li>
+        <li>Use a password manager — unique passwords for every site</li>
+        <li>Keep software & antivirus updated</li>
+        <li>Report phishing emails to your IT team or email provider</li>
+        <li>When in doubt, call the organization directly using a number from their official website</li>
+      </ul>
+    </div>
+
+  </section>
+
+  <footer class="footer">
+    <p>PhishGuard — WiCYS Club Cyber Awareness Hackathon 2026</p>
+  </footer>
+
+</body>
+</html>
